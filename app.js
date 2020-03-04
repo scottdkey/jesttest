@@ -2,14 +2,6 @@ export const originalArray = (arr) => {
   return arr
 }
 
-// EXPORT ALL AS FUNCTIONS AND KEEP THE NAMES THE SAME
-// ways to export
-// export const methodName = (param) => {
-// }
-// ----or---------
-// export methodName function(param){
-// }
-// numberArray = [1,2,3,4]
 // ARRAY ITERATOR METHODS
 // return array with double values in array
 export const doubleArray = (array) => { // => [2,4,6,8];  hint use map
@@ -59,15 +51,18 @@ export const evensOnlyAndDoubleArray = (array) => {// => [4,8]; // use map and f
 
 // find an item method return 'not found' if not found
 export const findItem = (array, search) => { //=> 1
-  let stuff = array.find( element => element == search);
-    if (stuff == undefined){
+  let searched = array.find( element => element == search);
+    if (searched == undefined){
       return 'not found'
     } else
-      return stuff
+      return searched
   }
 
 
-// sortArray(numberArray) //=> [4,3,2,1] *desc*
+export const sortArray = (array) => {//=> [4,3,2,1] *desc*
+  return array.sort((a, b) => b - a)
+}
+
 // artists = [
   // {name: 'a', likes:100},
   // {name: 'c', likes:99},

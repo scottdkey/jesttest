@@ -6,13 +6,15 @@ import {
   allNumbersGreaterThanZero,
   someNumbersAreOdd,
   findItem,
-  evensOnlyAndDoubleArray
+  evensOnlyAndDoubleArray,
+  sortArray
 } from "../app"
 
 const array = [1, 2, 3, 4]
 const evensArray = [2, 4, 6, 8]
 const oddsArray = [1, 3, 5, 7, 9]
-const zerosArray = [0, 2, 5, 6, 7, 0, 10, 15]
+const zerosArray = [0, 2, 5, 6, 7, 0, 10, 15, 4, 17, 12, 103]
+const negatives = [-1, -2, -3, -4, 2, 4, 6]
 
 test('baseline test', () => {})
 
@@ -107,7 +109,21 @@ describe('evensOnlyAndDoubleArray', ()=>{
     expect(evensOnlyAndDoubleArray(oddsArray)).toEqual([])
   })
   test('expect zerosArray to remove 0s and double remaining', ()=>{
-    expect(evensOnlyAndDoubleArray(zerosArray)).toEqual([4,12,20])
+    expect(evensOnlyAndDoubleArray(zerosArray)).toEqual([4,12,20,8,24])
   })
-  
+  test('expect negative evens to double appropriately', ()=>{
+    expect(evensOnlyAndDoubleArray(negatives)).toEqual([-4,-8,4,8,12])
+  })
+})
+
+describe('sortArray tests(decending)', ()=>{
+  test('expect simple array to reverse', ()=>{
+    expect(sortArray(array)).toEqual([4,3,2,1])
+  })
+  test('expect mixed array to decend highest to lowest', ()=>{
+    expect(sortArray(zerosArray)).toEqual([103, 17, 15, 12, 10, 7, 6, 5, 4, 2, 0, 0])
+  })
+  test('expect array with negatives to sort with negatives lowest', ()=>{
+    expect(sortArray(negatives)).toEqual([6, 4, 2, -1, -2, -3, -4])
+  })
 })
