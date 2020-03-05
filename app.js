@@ -67,7 +67,7 @@ export const sortArray = (array) => { //=> [4,3,2,1] *desc*
 // ARRAY ITERATOR METHODS ON Objects with name age 
 // doubles likes of artist
 export const doubleLikes = (artists) => {
-  return artists.map((a) => { return {name: a.name, likes: a.likes*2}})
+  return artists.map((a) => ({ name: a.name, likes: a.likes * 2 }))
 };
 
 // =>[ {name: 'c', likes:101} ]; // use filter
