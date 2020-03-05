@@ -7,7 +7,14 @@ import {
   someNumbersAreOdd,
   findItem,
   evensOnlyAndDoubleArray,
-  sortArray
+  sortArray,
+  doubleLikes,
+  moreThan100Likes,
+  justArtistMoreThan100Likes,
+  numberOfLikes,
+  findObjByName,
+  sortArtistByName,
+  allArtistNames
 } from "../app"
 
 const array = [1, 2, 3, 4]
@@ -16,10 +23,17 @@ const oddsArray = [1, 3, 5, 7, 9]
 const zerosArray = [0, 2, 5, 6, 7, 0, 10, 15, 4, 17, 12, 103]
 const negatives = [-1, -2, -3, -4, 2, 4, 6]
 
-const artists = [
+var artists = [
   {name: 'a', likes:100},
   {name: 'c', likes:99},
-  {name: 'c', likes:101}, 
+  {name: 'c', likes:101}
+]
+var moreArtists = [
+  {name: 'a', likes:100},
+  {name: 'c', likes:99},
+  {name: 'c', likes:101},
+  {name: 'd', likes:201},
+  {name: 'e', likes:93}
 ]
 
 test('baseline test', () => {})
@@ -133,3 +147,58 @@ describe('sortArray tests(decending)', ()=>{
     expect(sortArray(negatives)).toEqual([6, 4, 2, -1, -2, -3, -4])
   })
 })
+
+describe('doubleLikes tests', ()=> {
+  test('expect all the likes to be double what they were before', ()=> {
+    expect(doubleLikes(artists)).toEqual([{"likes": 200, "name": "a"}, {"likes": 198, "name": "c"}, {"likes": 202, "name": "c"}])
+  })
+})
+
+describe('moreThan100Likes tests', ()=>{
+  test('expect there to only be one artist with over 100 likes', ()=>{
+    expect(moreThan100Likes(artists)).toEqual([{"likes": 101, "name": "c"}])
+  })
+})
+
+describe('justArtistMoreThan100Likes tests', ()=>{
+  test('expect only the name of c', ()=>{
+    expect(justArtistMoreThan100Likes(artists)).toEqual('c')
+  })
+  test('expect return of two names, c and d', ()=>{
+    expect(justArtistMoreThan100Likes(moreArtists)).toEqual('c','d')
+  })
+})
+
+describe('numberOfLikes tests', ()=>{
+  test('expect all the likes to equal 300', ()=>{
+    expect(numberOfLikes(artists)).toEqual(300)
+  }),
+  test('expect all the likes to equal 300', ()=>{
+    expect(numberOfLikes(moreArtists)).toEqual(594)
+  })
+})
+
+describe('findObjByName tests', ()=> {
+  test('expect search for a to return propper object', ()=>{
+    expect(findObjByName(artists, 'a')).toEqual({"likes": 100, "name": "a"})
+  })
+  test('expect search to return not found', ()=>{
+    expect(findObjByName(artists, 'e')).toEqual('not found')
+  })
+})
+
+describe('sortArtistByName tests', ()=>{
+  test('expect artists to be sorted by first name', ()=>{
+    expect(sortArtistByName(artists)).toEqual([{"likes": 99, "name": "c"}, {"likes": 100, "name": "a"}, {"likes": 101, "name": "c"}])
+  })
+})
+
+describe('allArtistNames tests', ()=>{
+  test('expect all names in an array', ()=>{
+    expect(allArtistNames(artists)).toEqual(["c", "a", "c"])
+  })
+  test('expect more names', ()=>{
+    expect(allArtistNames(moreArtists)).toEqual(["a", "c", "c", "d", "e"])
+  })
+})
+
