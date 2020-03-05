@@ -16,6 +16,12 @@ const oddsArray = [1, 3, 5, 7, 9]
 const zerosArray = [0, 2, 5, 6, 7, 0, 10, 15, 4, 17, 12, 103]
 const negatives = [-1, -2, -3, -4, 2, 4, 6]
 
+const artists = [
+  {name: 'a', likes:100},
+  {name: 'c', likes:99},
+  {name: 'c', likes:101}, 
+]
+
 test('baseline test', () => {})
 
 describe('originalArray tests', () => {

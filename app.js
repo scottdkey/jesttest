@@ -63,24 +63,51 @@ export const sortArray = (array) => {//=> [4,3,2,1] *desc*
   return array.sort((a, b) => b - a)
 }
 
-// artists = [
-  // {name: 'a', likes:100},
-  // {name: 'c', likes:99},
-  // {name: 'c', likes:101}, 
-// ]
-
-
 
 // ARRAY ITERATOR METHODS ON Objects with name age 
 // doubles likes of artist
-// doubleLikes(artists)
+export const doubleLikes = (artists) => {
+  let n = artists.find()
+}
 // => [
 //   {name: 'a', likes:200},
 //   {name: 'c', likes:198},
 //   {name: 'c', likes:202},  
 // ]; 
 
+// var projects = [
+//   {
+//       value: "jquery",
+//       label: "jQuery",
+//       desc: "the write less, do more, JavaScript library",
+//       icon: "jquery_32x32.png"
+//   },
+//   {
+//       value: "jquery-ui",
+//       label: "jQuery UI",
+//       desc: "the official user interface library for jQuery",
+//       icon: "jqueryui_32x32.png"
+//   }];
+  
+//   //find the index of object from array that you want to update
+//   const objIndex = projects.findIndex(obj => obj.value === 'jquery-ui');
+  
+//   // make new object of updated object.   
+//   const updatedObj = { ...projects[objIndex], desc: 'updated desc value'};
+  
+//   // make final new array of objects by combining updated object.
+//   const updatedProjects = [
+//     ...projects.slice(0, objIndex),
+//     updatedObj,
+//     ...projects.slice(objIndex + 1),
+//   ];
+  
+//   console.log("original data=", projects);
+//   console.log("updated data=", updatedProjects);
 
+
+
+// actual project
 // moreThan100Likes(artists)// =>[ {name: 'c', likes:101} ]; // use filter
 
 
